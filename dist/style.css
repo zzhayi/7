@@ -1,0 +1,99 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f7f7;
+    overflow: hidden; /* 隱藏捲軸 */
+    font-family: sans-serif;
+}
+
+#game-container {
+    width: 600px;
+    height: 300px;
+    border: 1px solid #000;
+    position: relative;
+    overflow: hidden; /* 隱藏超出範圍的元素 */
+    background-color: white;
+}
+
+#dino {
+    width: 40px;
+    height: 40px;
+    /* 暫時代替圖片，你可以用 background-image 替換 */
+    background-color: #666;
+    /* background-image: url('dino.png'); */ /* 加上這行並提供圖片 */
+    /* background-size: cover; */
+    position: absolute;
+    bottom: 20px; /* 初始位置在地面上 */
+    left: 50px;
+}
+
+#dino.jump {
+    animation: jump 0.6s linear;
+}
+
+@keyframes jump {
+    0%   { bottom: 20px; }
+    50%  { bottom: 180px; } /* 跳躍高度 */
+    100% { bottom: 20px; }
+}
+
+
+#ground {
+    width: 100%;
+    height: 20px;
+    background-color: #333;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.obstacle {
+    width: 20px;
+    height: 40px;
+    /* 暫時代替圖片 */
+    background-color: darkgreen;
+    position: absolute;
+    bottom: 20px; /* 在地面上 */
+    right: -30px; /* 從右邊螢幕外開始 */
+    /* 可以為不同仙人掌設定不同寬高和背景圖 */
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    color: #555;
+}
+
+#instructions {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 14px;
+    color: #888;
+}
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: red;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#restart-button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
